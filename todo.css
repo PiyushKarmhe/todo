@@ -18,6 +18,7 @@
 main{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .head{
@@ -304,6 +305,15 @@ h4{
     cursor: pointer;
 }
 
+footer{
+    margin:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:15px;
+}
+
 footer h4 a{
     text-decoration: none;
     color:var(--theme);
@@ -312,4 +322,3 @@ footer h4 a{
 footer h4 a:hover{
     color:var(--inte);
 }
-
