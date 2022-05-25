@@ -5,22 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="todo.css">
-    <script defer src="todo.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/todo.css">
+
+    <!-- cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <!-- Js -->
+    <script defer src="../js/todo.js"></script>
 </head>
 <body>
-    <div class="head">
-        <h1 class="title">Todo</h1>
-        <div class="add">
-            <input type="text">
-            <button class="addbtn">+ Add</button>
+    <main>
+        <div class="left">
+            <div class="head">
+                <h1 class="title">Todo</h1>
+                <div class="add">
+                    <input type="text" placeholder="Enter Items">
+                    <button class="addbtn">+ Add</button>
+                </div>
+            </div>
+            <div class="list">
+                <ul>
+
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="list">
-        <ul>
-            
-        </ul>
-    </div>
-    <h4>Made by @Piyush Karmhe</h4>
+        <div class="right">
+            <div class="top">
+                <h1 class="frac">0/0</h1>
+            </div>
+            <div class="bottom">
+                <h3 class="clear">CLEAR ALL</h3>
+                <div class="chart" style="--value:0"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <h4>Made by <a href="https://linktr.ee/piyushkarmhe" target="_blank">@Piyush Karmhe</a></h4>
+    </footer>
 </body>
 </html>
