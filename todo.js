@@ -98,6 +98,8 @@ const validation=(str)=>{
 const onboot =()=>{
     const checked = [];
     for(let i=0; i<localStorage.length; i++){
+        console.log(localStorage.key(i));
+        console.log(localStorage.getItem(localStorage.key(i)));
         checked.push(localStorage.getItem(localStorage.key(i)));
         input.value = `${localStorage.key(i)}`;
         add();
@@ -115,7 +117,6 @@ const onboot =()=>{
     }
     fraction();
 }
-
 addbtn.addEventListener("click",add);
 
 dlt.addEventListener("click",()=>{
