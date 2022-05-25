@@ -12,11 +12,17 @@
     --leftw: 300px;
     --sec: white;
     --inte: red;
+    --size: 12rem;
+}
+
+main{
+    display: flex;
+    justify-content: space-around;
 }
 
 .head{
     height: 150px;
-    width: clamp(240px,80vw,var(--leftw));
+    min-width: clamp(240px,80vw,var(--leftw));
     background-color:var(--theme);
     margin: 20px;
     border-radius: 20px;
@@ -30,7 +36,7 @@
 
 .list{
     min-height: 400px;
-    width: clamp(240px,80vw,var(--leftw));
+    min-width: clamp(240px,80vw,var(--leftw));
     background-color:var(--theme);
     margin: 20px;
     border-radius: 20px;
@@ -131,6 +137,19 @@ li{
     gap:20px;
     align-items: center;
     height: 37.67px;
+    position:relative;
+}
+
+li::before{
+    content:"✓ ";
+    position: absolute;
+    left:-22px;
+    display: none;
+    color:var(--inte);
+}
+
+li:hover::before{
+    display: block;
 }
 
 .checked{
@@ -141,6 +160,11 @@ li{
     padding: 3px 20px;
     margin-top:5px;
 }
+
+.checked::before{
+    color:var(--theme) !important;
+}
+
 .del{
     background-color: var(--inte);
     color:var(--sec);
@@ -191,4 +215,100 @@ li:hover .del{
 
 h4{
     margin-left:45px;
+}
+
+.top{
+    height: 150px;
+    width: clamp(240px,80vw,var(--leftw));
+    background-color:var(--theme);
+    margin: 20px;
+    border-radius: 20px;
+    padding:10px 15px;
+    outline: 5px solid var(--theme);
+    outline-offset: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom{
+    min-height: 400px;
+    width: clamp(240px,80vw,var(--leftw));
+    background-color:var(--theme);
+    margin: 20px;
+    border-radius: 20px;
+    padding:10px 15px;
+    outline: 5px solid var(--theme);
+    outline-offset: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.frac{
+    padding:10px;
+    color:var(--inte);
+    font-size: 5.5em;
+}
+
+@keyframes round {
+    0%, 33% { --per: 0; }
+    100% { --per: var(--value); }
+}
+
+.chart {
+    --per: var(--value);
+    animation: round 3s 1 forwards;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: 
+        radial-gradient(closest-side, var(--theme) 80%, transparent 0 99.9%, var(--theme)  0),
+        conic-gradient(var(--inte) calc(var(--per) * 1%), var(--theme) 0);
+    font-size: calc(var(--size) / 4);
+    color: var(--inte);
+    font-weight: 500;
+}
+
+.chart::before {
+    counter-reset: percentage var(--value);
+    content: counter(percentage) '%';
+}
+
+.error {
+    position: relative;
+    animation: shake .1s linear;
+    animation-iteration-count: 3;
+}
+
+@keyframes shake {
+    0% { left: -5px; }
+    100% { right: -5px; }
+}
+
+.clear{
+    color:var(--sec);
+    letter-spacing: 2px;
+    font-weight: 400;
+    border: 2px solid var(--sec);
+    padding:5px 10px;
+    border-radius: 20px;
+}
+
+.clear:hover{
+    background-color: var(--inte);
+    cursor: pointer;
+}
+
+footer h4 a{
+    text-decoration: none;
+    color:var(--theme);
+}
+
+footer h4 a:hover{
+    color:var(--inte);
 }
